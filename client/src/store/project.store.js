@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 // Use this for production deployment
 const API_BASE_URL = import.meta.env.PROD ? 
-  "https://moses-ramoeletsi-portfolio-server.vercel.app/" : "";
+  "https://moses-ramoeletsi-portfolio-server.vercel.app" : "";
 
 export const projectFunctionStore = create((set) => ({
   projects: [],
