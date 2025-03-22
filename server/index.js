@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { dbConnection } from './dbConnection/dbConnection.js';
 import portfolioRoutes from './routes/portfolio.route.js';
+
 // Load environment variables
 dotenv.config();
 
@@ -15,8 +16,8 @@ app.use(cors({
     origin: ['https://moses-ramoeletsi-portfolio.vercel.app', 'http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
-  }));
-  
+}));
+ 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
