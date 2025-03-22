@@ -189,7 +189,8 @@ const handleAdditionalImages = async (e) => {
         !projectData.projectName ||
         !projectData.projectType ||
         !projectData.projectDescription ||
-        !projectData.projectTech
+        !projectData.projectTech||
+        (!isEditMode && !projectData.projectImage)
       ) {
         setError("Please fill in all required fields");
         return;
@@ -419,13 +420,15 @@ const handleAdditionalImages = async (e) => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="projectImage">Project Image (required)</label>
+                  <label htmlFor="projectImage">
+                    Project Image {isEditMode ? "(optional)" : "(required)"}
+                  </label>
                   <input
                     type="file"
                     id="projectImage"
                     accept="image/*"
                     onChange={handleImageChange}
-                    required
+                    required={!isEditMode} 
                   />
                   <small className="help-text">Maximum file size: 5MB</small>
                   {isLoading && (
